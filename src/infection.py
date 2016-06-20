@@ -25,6 +25,10 @@ def infect_total(user):
 
 
 def find_closest_subset_sum_of_graphs(graphs, n, target):
+    """
+    Finds the array of graph objects whose sum of number of users is closest to the target infection number.
+    It returns the array and the diff value which is negative if the sum is greater and positive if sum is less than the target
+    """
     if n == 0:
         return [], target
 
@@ -47,8 +51,6 @@ def find_closest_subset_sum_of_graphs(graphs, n, target):
 
 def infect_limited(graphs, desired_infection_count):
     infection_count = 0
-    #selected_graphs, user_count = get_groups_of_users_whose_counts_sum_closest_to_target(
-    #    graphs, desired_infection_count)
     selected_graphs, target_diff = find_closest_subset_sum_of_graphs(
         graphs, len(graphs), desired_infection_count)
     for graph in selected_graphs:
